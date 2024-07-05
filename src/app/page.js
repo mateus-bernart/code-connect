@@ -14,14 +14,15 @@ async function getAllPosts (page) {
   }
 }
 
-export default async function Home() {
-  const {data: posts, prev, next } = await getAllPosts(1);
+export default async function Home({ searchParams }) {
+  const currentPage = searchParams?.page || 1
+  const {data: posts, prev, next } = await getAllPosts(currentPage);
   return (
     <main className={styles.grid}>
       {posts.map(post => <CardPost key = {post.id} post={post}/>)}
       {/* Link is a next helper that does not refresh the page */}
-      {prev && <Link href={`/?page=${prev}`}>Pagina anterior</Link>}
-      {next && <Link href={`/?page=${next}`}>Proxima Pagina</Link>}
+      {prev && <Link className={styles.link} href={`/?page=${prev}`}>Pagina anterior</Link>}
+      {next && <Link className={styles.link} href={`/?page=${next}`}>Proxima Pagina</Link>}
     </main>
   );
 }

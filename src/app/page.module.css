@@ -4,3 +4,9 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+.link{
+    font-size: 1.1rem;
+    color: rgb(0, 255, 119);
+}
+
