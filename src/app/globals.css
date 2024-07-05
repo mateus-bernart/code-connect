@@ -1,3 +1,9 @@
+
+*{
+    box-sizing: border-box; /* "Quando eu definir um tamanho, isso inclui tudo – borda e padding!" Isso facilita a vida quando você está ajustando tamanhos e evita surpresas desagradáveis. */
+}
+
+
 body{
     background: linear-gradient(180deg, #0E1112 0%, #00090E 100%);
     margin: 0;
@@ -13,8 +19,8 @@ body{
     height: 100vh;
 }
 
-*{
-    box-sizing: border-box; /* "Quando eu definir um tamanho, isso inclui tudo – borda e padding!" Isso facilita a vida quando você está ajustando tamanhos e evita surpresas desagradáveis. */
+.main-content{
+    flex-grow: 1;
 }
 
 
