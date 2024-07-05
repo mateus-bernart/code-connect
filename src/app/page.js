@@ -2,9 +2,9 @@ import { CardPost } from "@/components/CardPost";
 import logger from "@/logger";
 import styles from './page.module.css'
 
-async function getAllPosts () {
+async function getAllPosts (page) {
   try {
-    const response = await fetch('http://localhost:3042/posts');
+    const response = await fetch(`http://localhost:3042/posts?_page=${page}&_per_page=6`);
     if (!response.ok) throw new Error('Falha na rede');
     return response.json();
   } catch (error) {
@@ -14,10 +14,10 @@ async function getAllPosts () {
 }
 
 export default async function Home() {
-  const posts = await getAllPosts();
+  const {data: posts} = await getAllPosts(1);
   return (
     <main className={styles.grid}>
-      {posts.map(post => <CardPost post={post}/>)}
+      {posts.map(post => <CardPost key = {post.id} post={post}/>)}
     </main>
   );
 }
