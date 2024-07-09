@@ -1,10 +1,12 @@
 import Image from "next/image"
 import { Avatar } from "./Avatar"
 import styles from "./cardpost.module.css"
+import Link from "next/link"
 
 export const CardPost = ({ post }) => {
     return (
-            <article className={styles.card}>
+        <Link className={styles.link} href={`/posts/${post.slug}`}> 
+                    <article className={styles.card}>
                 <header className={styles.header}>
                     <figure className={styles.header.figure}>
                         <Image 
@@ -26,5 +28,6 @@ export const CardPost = ({ post }) => {
                     />
                 </footer>
             </article>
+            </Link>
     )
 }

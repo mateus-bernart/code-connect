@@ -14,7 +14,7 @@ async function getAllPosts (page) {
   }
 }
 
-export default async function Home({ searchParams }) {
+export default async function Home({ searchParams }) { 
   const currentPage = searchParams?.page || 1
   const {data: posts, prev, next } = await getAllPosts(currentPage);
   return (
